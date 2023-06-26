@@ -15,16 +15,16 @@ established restaurants.
 
 
 
-![Pixela](https://github.com/amaithi-sam/Habit-tracker-python-and-pixela/blob/main/screenshot/Screenshot%20from%202023-01-16%2017-58-42.png?raw=true)
+<!-- ![Pixela](https://github.com/amaithi-sam/Habit-tracker-python-and-pixela/blob/main/screenshot/Screenshot%20from%202023-01-16%2017-58-42.png?raw=true) -->
 
-## Habit Tracker Screenshot
+<!-- ## Habit Tracker Screenshot -->
 
-![Habit Tracker](https://github.com/amaithi-sam/Habit-tracker-python-and-pixela/blob/main/screenshot/Screenshot%20from%202023-01-19%2000-40-09.png?raw=true)
+<!-- ![Habit Tracker](https://github.com/amaithi-sam/Habit-tracker-python-and-pixela/blob/main/screenshot/Screenshot%20from%202023-01-19%2000-40-09.png?raw=true) -->
 
 
-## Pixela API Documentation
+<!-- ## Pixela API Documentation -->
 
-[Link - API Documentation](https://docs.pixe.la/)
+<!-- [Link - API Documentation](https://docs.pixe.la/) -->
 
 
 ## Run Locally
@@ -50,11 +50,26 @@ Install dependencies
 Run the Project
 
 ```bash
-  python main.py
+  python dvc repro -f
 ```
 
 
 ## Author
 
 - [@amaithi-sam](https://www.github.com/amaithi-sam)
+
+
+# Zomato Bangalore Restaurants
+
+The basic idea of analyzing the Zomato dataset is to get a fair idea about the factors affecting the establishment
+of different types of restaurant at different places in Bengaluru, aggregate rating of each restaurant, Bengaluru
+being one such city has more than 12,000 restaurants with restaurants serving dishes from all over the world.
+With each day new restaurants opening the industry has’nt been saturated yet and the demand is increasing
+day by day. Inspite of increasing demand it however has become difficult for new restaurants to compete with
+established restaurants. 
+
+## Dataset 
+
+
+[Link to Zomato kaggle Dataset ](https://www.kaggle.com/datasets/himanshupoddar/zomato-bangalore-restaurants)
 
