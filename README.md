@@ -13,20 +13,6 @@ established restaurants.
 [Link to Zomato kaggle Dataset ](https://www.kaggle.com/datasets/himanshupoddar/zomato-bangalore-restaurants)
 
 
-
-
-<!-- ![Pixela](https://github.com/amaithi-sam/Habit-tracker-python-and-pixela/blob/main/screenshot/Screenshot%20from%202023-01-16%2017-58-42.png?raw=true) -->
-
-<!-- ## Habit Tracker Screenshot -->
-
-<!-- ![Habit Tracker](https://github.com/amaithi-sam/Habit-tracker-python-and-pixela/blob/main/screenshot/Screenshot%20from%202023-01-19%2000-40-09.png?raw=true) -->
-
-
-<!-- ## Pixela API Documentation -->
-
-<!-- [Link - API Documentation](https://docs.pixe.la/) -->
-
-
 ## Run Locally
 
 Clone the project
