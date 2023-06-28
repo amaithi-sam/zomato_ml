@@ -1,0 +1,10 @@
+base:
+  name: Zomato Restaurant Rating Prediction
+  random_seed: 42
+
+data_source:
+  local_data_source:
+    unprocessed_data_source: data/raw_data/zomato.csv
+    processed_data_source: data/processed_data/data_for_processing.csv
+    data_sample: 10000
+

@@ -1,5 +1,66 @@
 [
     {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "read_params",
+        "importPath": "get_data_",
+        "description": "get_data_",
+        "isExtraImport": true,
+        "detail": "get_data_",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_frame",
+        "importPath": "get_data_",
+        "description": "get_data_",
+        "isExtraImport": true,
+        "detail": "get_data_",
+        "documentation": {}
+    },
+    {
+        "label": "yaml",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "yaml",
+        "description": "yaml",
+        "detail": "yaml",
+        "documentation": {}
+    },
+    {
         "label": "setup",
         "importPath": "setuptools",
         "description": "setuptools",
@@ -13,6 +74,33 @@
         "description": "setuptools",
         "isExtraImport": true,
         "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "feature_engine",
+        "kind": 2,
+        "importPath": "src.feature_engineering",
+        "description": "src.feature_engineering",
+        "peekOfCode": "def feature_engine(config_path):\n    config = read_params(config_path)\n    df = get_data_frame(config_path)",
+        "detail": "src.feature_engineering",
+        "documentation": {}
+    },
+    {
+        "label": "read_params",
+        "kind": 2,
+        "importPath": "src.get_data_",
+        "description": "src.get_data_",
+        "peekOfCode": "def read_params(config_path):\n    '''\n    Read the params.yaml file and return a dictionary with various parameters along with its values\n    '''\n    with open(config_path) as yaml_file:\n        config = yaml.safe_load(yaml_file)\n    return config \ndef get_data_frame(config_path):\n    '''\n    Read the CSV file from the local directory and return a pandas dataframe",
+        "detail": "src.get_data_",
+        "documentation": {}
+    },
+    {
+        "label": "get_data_frame",
+        "kind": 2,
+        "importPath": "src.get_data_",
+        "description": "src.get_data_",
+        "peekOfCode": "def get_data_frame(config_path):\n    '''\n    Read the CSV file from the local directory and return a pandas dataframe\n    '''\n    config = read_params(config_path)\n    data_path = config['data_source']['local_data_source']['processed_data_source']\n    sample_ = config['data_source']['local_data_source']['data_sample']\n    df = pd.read_csv(data_path, sep=',')\n    return df.sample(n=sample_)\nif __name__ == \"__main__\":",
+        "detail": "src.get_data_",
         "documentation": {}
     }
 ]

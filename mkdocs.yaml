@@ -1,0 +1,12 @@
+nav:
+  - Home: 'index.md'
+  - About: 'about.md'
+
+
+
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust  
