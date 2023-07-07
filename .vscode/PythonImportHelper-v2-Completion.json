@@ -1,20 +1,20 @@
 [
     {
-        "label": "argparse",
+        "label": "joblib",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "argparse",
-        "description": "argparse",
-        "detail": "argparse",
+        "importPath": "joblib",
+        "description": "joblib",
+        "detail": "joblib",
         "documentation": {}
     },
     {
-        "label": "pandas",
+        "label": "json",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "pandas",
-        "description": "pandas",
-        "detail": "pandas",
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
@@ -27,6 +27,82 @@
         "documentation": {}
     },
     {
+        "label": "read_params",
+        "importPath": "src.get_data_",
+        "description": "src.get_data_",
+        "isExtraImport": true,
+        "detail": "src.get_data_",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "pprint",
+        "importPath": "pprint",
+        "description": "pprint",
+        "isExtraImport": true,
+        "detail": "pprint",
+        "documentation": {}
+    },
+    {
+        "label": "_transformer",
+        "importPath": "prediction_service.pred_transform",
+        "description": "prediction_service.pred_transform",
+        "isExtraImport": true,
+        "detail": "prediction_service.pred_transform",
+        "documentation": {}
+    },
+    {
+        "label": "warnings",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "warnings",
+        "description": "warnings",
+        "detail": "warnings",
+        "documentation": {}
+    },
+    {
         "label": "sys",
         "kind": 6,
         "isExtraImport": true,
@@ -36,21 +112,20 @@
         "documentation": {}
     },
     {
+        "label": "get_data_",
+        "importPath": "src",
+        "description": "src",
+        "isExtraImport": true,
+        "detail": "src",
+        "documentation": {}
+    },
+    {
         "label": "csv",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "csv",
         "description": "csv",
         "detail": "csv",
-        "documentation": {}
-    },
-    {
-        "label": "joblib",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "joblib",
-        "description": "joblib",
-        "detail": "joblib",
         "documentation": {}
     },
     {
@@ -103,6 +178,14 @@
         "documentation": {}
     },
     {
+        "label": "read_params",
+        "importPath": "get_data_",
+        "description": "get_data_",
+        "isExtraImport": true,
+        "detail": "get_data_",
+        "documentation": {}
+    },
+    {
         "label": "yaml",
         "kind": 6,
         "isExtraImport": true,
@@ -112,21 +195,20 @@
         "documentation": {}
     },
     {
-        "label": "numpy",
+        "label": "mlflow",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "numpy",
-        "description": "numpy",
-        "detail": "numpy",
+        "importPath": "mlflow",
+        "description": "mlflow",
+        "detail": "mlflow",
         "documentation": {}
     },
     {
-        "label": "warnings",
-        "kind": 6,
+        "label": "MlflowClient",
+        "importPath": "mlflow.tracking",
+        "description": "mlflow.tracking",
         "isExtraImport": true,
-        "importPath": "warnings",
-        "description": "warnings",
-        "detail": "warnings",
+        "detail": "mlflow.tracking",
         "documentation": {}
     },
     {
@@ -151,24 +233,6 @@
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
-        "documentation": {}
-    },
-    {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
-        "label": "mlflow",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "mlflow",
-        "description": "mlflow",
-        "detail": "mlflow",
         "documentation": {}
     },
     {
@@ -201,6 +265,60 @@
         "description": "setuptools",
         "isExtraImport": true,
         "detail": "setuptools",
+        "documentation": {}
+    },
+    {
+        "label": "form_response",
+        "kind": 2,
+        "importPath": "prediction_service.pred_service",
+        "description": "prediction_service.pred_service",
+        "peekOfCode": "def form_response(df):\n    try:\n        config = get_args_config()\n        prod_model_path = config['ml_flow_config']['production_model_path']\n        data = pd.DataFrame(df, columns=df.keys(), index=[0]).copy()\n        data_for_pred =  _transformer(data, config)\n        prod_model = joblib.load(prod_model_path)\n        pred = prod_model.predict(data_for_pred)\n        print(pred)\n        val = round(pred.tolist()[0], 2)",
+        "detail": "prediction_service.pred_service",
+        "documentation": {}
+    },
+    {
+        "label": "get_args_config",
+        "kind": 2,
+        "importPath": "prediction_service.pred_service",
+        "description": "prediction_service.pred_service",
+        "peekOfCode": "def get_args_config():\n    args = argparse.ArgumentParser()\n    args.add_argument(\"--config\", default=\"params.yaml\")\n    parsed_args = args.parse_args()\n    config = read_params(config_path=parsed_args.config)\n    return config",
+        "detail": "prediction_service.pred_service",
+        "documentation": {}
+    },
+    {
+        "label": "model_path",
+        "kind": 5,
+        "importPath": "prediction_service.pred_service",
+        "description": "prediction_service.pred_service",
+        "peekOfCode": "model_path = os.path.join(\"prediction_service\",\"poduction_model.pkl\") \ndef form_response(df):\n    try:\n        config = get_args_config()\n        prod_model_path = config['ml_flow_config']['production_model_path']\n        data = pd.DataFrame(df, columns=df.keys(), index=[0]).copy()\n        data_for_pred =  _transformer(data, config)\n        prod_model = joblib.load(prod_model_path)\n        pred = prod_model.predict(data_for_pred)\n        print(pred)",
+        "detail": "prediction_service.pred_service",
+        "documentation": {}
+    },
+    {
+        "label": "lister",
+        "kind": 2,
+        "importPath": "prediction_service.pred_transform",
+        "description": "prediction_service.pred_transform",
+        "peekOfCode": "def lister(val):\n    '''\n    this function takes the value and return it in a list\n    '''\n    if ',' in val:\n        ls = val.split(', ')\n        return ls\n    else:\n        return [val]\ndef spacer(val):",
+        "detail": "prediction_service.pred_transform",
+        "documentation": {}
+    },
+    {
+        "label": "spacer",
+        "kind": 2,
+        "importPath": "prediction_service.pred_transform",
+        "description": "prediction_service.pred_transform",
+        "peekOfCode": "def spacer(val):\n    if ',' in val:\n        n_val =str(val).replace(',', ', ', 20)\n        return n_val\n    else:\n        return val\n# if __name__ == \"__main__\":\n#     d = {'online_order_Yes': '1', 'book_table_Yes': '0', 'cost_per_person': '500', 'rest_type': 'Casual Dining, Cafe', 'loc_pincode': '380068', 'cuisines': 'African,Andhra,Asian'}\n#     data = pd.DataFrame(d, columns=d.keys(), index=[0]).copy()\n#     args = argparse.ArgumentParser()",
+        "detail": "prediction_service.pred_transform",
+        "documentation": {}
+    },
+    {
+        "label": "CompareModels",
+        "kind": 6,
+        "importPath": "src.compare_model_plotter",
+        "description": "src.compare_model_plotter",
+        "peekOfCode": "class CompareModels:\n    def __init__(self):\n        import pandas as pd\n        self._models = pd.DataFrame(\n            data=['r', 'R^2', 'RMSE', 'RMSRE', 'MAPE'],\n            columns=['Model']\n        ).set_index(keys='Model')\n    def add(self, model_name, y_test, y_pred):\n        import numpy as np\n        from sklearn.metrics import r2_score, mean_squared_error",
+        "detail": "src.compare_model_plotter",
         "documentation": {}
     },
     {
@@ -237,6 +355,15 @@
         "description": "src.get_data_",
         "peekOfCode": "def get_data_frame(config_path):\n    '''\n    Read the CSV file from the local directory and return a pandas dataframe\n    '''\n    config = read_params(config_path)\n    data_path = config['data_source']['local_data_source']['process_data_source']\n    sample_ = config['data_source']['local_data_source']['data_sample']\n    df = pd.read_csv(data_path, sep=',')\n    return df          #df.sample(n=sample_)\nif __name__ == \"__main__\":",
         "detail": "src.get_data_",
+        "documentation": {}
+    },
+    {
+        "label": "log_production_model",
+        "kind": 2,
+        "importPath": "src.ml_flow_log_production",
+        "description": "src.ml_flow_log_production",
+        "peekOfCode": "def log_production_model(config_path):\n    config = read_params(config_path)\n    mlflow_config = config[\"ml_flow_config\"]\n    model_name = mlflow_config[\"registered_model_name\"]\n    remote_server_uri = mlflow_config[\"remote_server_uri\"]\n    mlflow.set_tracking_uri(remote_server_uri)\n    runs = mlflow.search_runs(search_all_experiments=True) # it will return a dataframe\n    # runs.to_csv('runs.csv')\n    lowest = runs[\"metrics.MAE\"].sort_values(ascending=True)[0]\n    lowest_run_id = runs[runs[\"metrics.MAE\"] == lowest][\"run_id\"][0]",
+        "detail": "src.ml_flow_log_production",
         "documentation": {}
     },
     {
