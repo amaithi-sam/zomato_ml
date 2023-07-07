@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Restaurant Rating Prediction</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="header-content-div">
+        <a href="https://github.com/amaithi-sam">
+          <img
+            src="https://static.vecteezy.com/system/resources/previews/016/833/880/non_2x/github-logo-git-hub-icon-with-text-on-white-background-free-vector.jpg"
+            alt="Gihub logo"
+            id="header-img"
+        /></a>
+        <nav id="nav-bar">
+          <a href="{{ url_for('root') }}" class="nav-link">HOME</a>
+          <a href="{{ url_for('predict_page') }}" class="nav-link">PREDICT</a>
+          <a href="#our-service" target="_blank" rel="noopener noreferrer" class="nav-link">DOCS</a>
+          <a href="https://github.com/amaithi-sam/zomato_ml" target="_blank" rel="noopener noreferrer" class="nav-link">SOURCE CODE</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section id="home-sec" class="flexible home-sec">
+        <div class="eye-grabber-img">
+          <img src="https://t3.ftcdn.net/jpg/02/21/40/16/360_F_221401603_6urJw6Di9KjlgcPgLfkdVLHtc5Q21aCx.jpg" alt="Image of Apples" />
+        </div>
+        <div class="eye-grabber">
+          <h1>SA's Restaurant Rating Prediction</h1>
+          <h2>
+           
+          </h2>
+          <button class="btn" onclick="location.href = '/predict';">
+            Get Started
+          </button>
+        </div>
+
+        
+    </main>
+    <footer>
+
+
+
+
+      
+      <a href="#">SA's Restaurant Rating Prediction</a>
+    </footer>
+  </body>
+</html>

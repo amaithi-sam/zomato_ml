@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+  <title>SA's Prediction..</title>
+  
+  
+  <script type="text/javascript" src="{{ url_for('static', filename='js/predict.js') }}"></script>
+  
+  <!-- <link rel="stylesheet" href="index.css" > -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/virtual-select.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/multiselect.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/predict.css') }}">
+
+  <style>
+ body {background-image: linear-gradient(to right top, #ff6969, #fc6c93, #ec78b8, #d188d4, #b098e4, #98a6f1, #7fb3f8, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1)};
+
+  </style>
+    </head>
+    <body>
+      <header id="header">
+        <div class="header-content-div">
+          <a href="#home-sec">
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/016/833/880/non_2x/github-logo-git-hub-icon-with-text-on-white-background-free-vector.jpg"
+              alt="Company Logo"
+              id="header-img"
+          /></a>
+          <nav id="nav-bar">
+            <a href="{{ url_for('root') }}" class="nav-link">HOME</a>
+            <a href="{{ url_for('predict_page') }}" class="nav-link">PREDICT</a>
+            <a href="#our-service" target="_blank" rel="noopener noreferrer" class="nav-link">DOCS</a>
+          <a href="https://github.com/amaithi-sam/zomato_ml" target="_blank" rel="noopener noreferrer" class="nav-link">SOURCE CODE</a>
+          </nav>
+        </div>
+      </header>
+
+<div class="page_content" id="page-container">
+  <div id="content_wrap">
+    <form method="POST" action="/predict" class="form">
+        <p class="title">Let's Predict </p>
+        <!-- <p class="message">Fill in the Below Required Details.. </p> -->
+
+        <p class="message">Do You Have Online Order Facility.. </p>
+        <div class="radio-button-container">
+            
+            <div class="radio-button">
+            <input type="radio" class="radio-button__input" id="radio1" name="online_order_Yes" value="1">
+            <label class="radio-button__label" for="radio1">
+              <span class="radio-button__custom"></span>
+              Yes
+            </label>
+          </div>
+          <div class="radio-button">
+            <input type="radio" class="radio-button__input" id="radio2" name="online_order_Yes" value="0">
+            <label class="radio-button__label" for="radio2">
+              <span class="radio-button__custom"></span>
+              NO
+            </label>
+          </div>
+          </div>
+
+          <p class="message">Do You Have Table Booking Facility.. </p>
+        <div class="radio-button-container">
+            
+            <div class="radio-button">
+            <input type="radio" class="radio-button__input" id="radio3" name="book_table_Yes" value="1" required="required">
+            <label class="radio-button__label" for="radio3">
+              <span class="radio-button__custom"></span>
+              Yes
+            </label>
+          </div>
+          <div class="radio-button">
+            <input type="radio" class="radio-button__input" id="radio4" name="book_table_Yes" value="0" required="required">
+            <label class="radio-button__label" for="radio4">
+              <span class="radio-button__custom"></span>
+              NO
+            </label>
+          </div>
+          </div>
+
+          <p class="message">Cost Per Person (Approx)</p>
+          <div class="quantity">
+            <input type="number" min="20" max="3000" step="1" value="1" name="cost_per_person">
+          </div>
+
+          <p class="message">Restaurant Type</p>
+          <div class="select">
+            <select id="format" name="rest_type" class="input">
+              <option selected disabled>Choose Restaurant Type</option>
+              <option value="Casual Dining" data-calc="Casual Dining">Casual Dining</option>
+              <option value="Cafe, Casual Dining" data-calc="Cafe, Casual Dining">Cafe, Casual Dining</option>
+              <option value="Quick Bites" data-calc="Quick Bites">Quick Bites</option>
+              <option value="Casual Dining, Cafe" data-calc="Casual Dining, Cafe">Casual Dining, Cafe</option>
+              <option value="Cafe" data-calc="Cafe">Cafe</option>
+              <option value="Quick Bites, Cafe" data-calc="Quick Bites, Cafe">Quick Bites, Cafe</option>
+              <option value="Cafe, Quick Bites" data-calc="Cafe, Quick Bites">Cafe, Quick Bites</option>
+              <option value="Delivery" data-calc="Delivery">Delivery</option>
+              <option value="Mess" data-calc="Mess">Mess</option>
+              <option value="Dessert Parlor" data-calc="Dessert Parlor">Dessert Parlor</option>
+              <option value="Bakery, Dessert Parlor" data-calc="Bakery, Dessert Parlor">Bakery, Dessert Parlor</option>
+              <option value="Pub" data-calc="Pub">Pub</option>
+              <option value="Bakery" data-calc="Bakery">Bakery</option>
+              <option value="Takeaway, Delivery" data-calc="Takeaway, Delivery">Takeaway, Delivery</option>
+              <option value="Fine Dining" data-calc="Fine Dining">Fine Dining</option>
+              <option value="Beverage Shop" data-calc="Beverage Shop">Beverage Shop</option>
+              <option value="Sweet Shop" data-calc="Sweet Shop">Sweet Shop</option>
+              <option value="Bar" data-calc="Bar">Bar</option>
+              <option value="Beverage Shop, Quick Bites" data-calc="Beverage Shop, Quick Bites">Beverage Shop, Quick Bites</option>
+              <option value="Confectionery" data-calc="Confectionery">Confectionery</option>
+              <option value="Quick Bites, Beverage Shop" data-calc="Quick Bites, Beverage Shop">Quick Bites, Beverage Shop</option>
+              <option value="Dessert Parlor, Sweet Shop" data-calc="Dessert Parlor, Sweet Shop">Dessert Parlor, Sweet Shop</option>
+              <option value="Bakery, Quick Bites" data-calc="Bakery, Quick Bites">Bakery, Quick Bites</option>
+              <option value="Sweet Shop, Quick Bites" data-calc="Sweet Shop, Quick Bites">Sweet Shop, Quick Bites</option>
+              <option value="Kiosk" data-calc="Kiosk">Kiosk</option>
+              <option value="Food Truck" data-calc="Food Truck">Food Truck</option>
+              <option value="Quick Bites, Dessert Parlor" data-calc="Quick Bites, Dessert Parlor">Quick Bites, Dessert Parlor</option>
+              <option value="Beverage Shop, Dessert Parlor" data-calc="Beverage Shop, Dessert Parlor">Beverage Shop, Dessert Parlor</option>
+              <option value="Takeaway" data-calc="Takeaway">Takeaway</option>
+              <option value="Pub, Casual Dining" data-calc="Pub, Casual Dining">Pub, Casual Dining</option>
+              <option value="Casual Dining, Bar" data-calc="Casual Dining, Bar">Casual Dining, Bar</option>
+              <option value="Dessert Parlor, Beverage Shop" data-calc="Dessert Parlor, Beverage Shop">Dessert Parlor, Beverage Shop</option>
+              <option value="Quick Bites, Bakery" data-calc="Quick Bites, Bakery">Quick Bites, Bakery</option>
+              <option value="Dessert Parlor, Quick Bites" data-calc="Dessert Parlor, Quick Bites">Dessert Parlor, Quick Bites</option>
+              <option value="Microbrewery, Casual Dining" data-calc="Microbrewery, Casual Dining">Microbrewery, Casual Dining</option>
+              <option value="Lounge" data-calc="Lounge">Lounge</option>
+              <option value="Bar, Casual Dining" data-calc="Bar, Casual Dining">Bar, Casual Dining</option>
+              <option value="Food Court" data-calc="Food Court">Food Court</option>
+              <option value="Cafe, Bakery" data-calc="Cafe, Bakery">Cafe, Bakery</option>
+              <option value="Dhaba" data-calc="Dhaba">Dhaba</option>
+              <option value="Quick Bites, Sweet Shop" data-calc="Quick Bites, Sweet Shop">Quick Bites, Sweet Shop</option>
+              <option value="Microbrewery" data-calc="Microbrewery">Microbrewery</option>
+              <option value="Food Court, Quick Bites" data-calc="Food Court, Quick Bites">Food Court, Quick Bites</option>
+              <option value="Pub, Bar" data-calc="Pub, Bar">Pub, Bar</option>
+              <option value="Casual Dining, Pub" data-calc="Casual Dining, Pub">Casual Dining, Pub</option>
+              <option value="Lounge, Bar" data-calc="Lounge, Bar">Lounge, Bar</option>
+              <option value="Food Court, Dessert Parlor" data-calc="Food Court, Dessert Parlor">Food Court, Dessert Parlor</option>
+              <option value="Casual Dining, Sweet Shop" data-calc="Casual Dining, Sweet Shop">Casual Dining, Sweet Shop</option>
+              <option value="Food Court, Casual Dining" data-calc="Food Court, Casual Dining">Food Court, Casual Dining</option>
+              <option value="Casual Dining, Microbrewery" data-calc="Casual Dining, Microbrewery">Casual Dining, Microbrewery</option>
+              <option value="Sweet Shop, Dessert Parlor" data-calc="Sweet Shop, Dessert Parlor">Sweet Shop, Dessert Parlor</option>
+              <option value="Bakery, Beverage Shop" data-calc="Bakery, Beverage Shop">Bakery, Beverage Shop</option>
+              <option value="Lounge, Casual Dining" data-calc="Lounge, Casual Dining">Lounge, Casual Dining</option>
+              <option value="Cafe, Food Court" data-calc="Cafe, Food Court">Cafe, Food Court</option>
+              <option value="Beverage Shop, Cafe" data-calc="Beverage Shop, Cafe">Beverage Shop, Cafe</option>
+              <option value="Cafe, Dessert Parlor" data-calc="Cafe, Dessert Parlor">Cafe, Dessert Parlor</option>
+              <option value="Dessert Parlor, Cafe" data-calc="Dessert Parlor, Cafe">Dessert Parlor, Cafe</option>
+              <option value="Dessert Parlor, Bakery" data-calc="Dessert Parlor, Bakery">Dessert Parlor, Bakery</option>
+              <option value="Microbrewery, Pub" data-calc="Microbrewery, Pub">Microbrewery, Pub</option>
+              <option value="Bakery, Food Court" data-calc="Bakery, Food Court">Bakery, Food Court</option>
+              <option value="Club" data-calc="Club">Club</option>
+              <option value="Quick Bites, Food Court" data-calc="Quick Bites, Food Court">Quick Bites, Food Court</option>
+              <option value="Bakery, Cafe" data-calc="Bakery, Cafe">Bakery, Cafe</option>
+              <option value="Bar, Cafe" data-calc="Bar, Cafe">Bar, Cafe</option>
+              <option value="Pub, Cafe" data-calc="Pub, Cafe">Pub, Cafe</option>
+              <option value="Casual Dining, Irani Cafee" data-calc="Casual Dining, Irani Cafee">Casual Dining, Irani Cafee</option>
+              <option value="Fine Dining, Lounge" data-calc="Fine Dining, Lounge">Fine Dining, Lounge</option>
+              <option value="Bar, Quick Bites" data-calc="Bar, Quick Bites">Bar, Quick Bites</option>
+              <option value="Bakery, Kiosk" data-calc="Bakery, Kiosk">Bakery, Kiosk</option>
+              <option value="Pub, Microbrewery" data-calc="Pub, Microbrewery">Pub, Microbrewery</option>
+              <option value="Microbrewery, Lounge" data-calc="Microbrewery, Lounge">Microbrewery, Lounge</option>
+              <option value="Fine Dining, Microbrewery" data-calc="Fine Dining, Microbrewery">Fine Dining, Microbrewery</option>
+              <option value="Fine Dining, Bar" data-calc="Fine Dining, Bar">Fine Dining, Bar</option>
+              <option value="Mess, Quick Bites" data-calc="Mess, Quick Bites">Mess, Quick Bites</option>
+              <option value="Dessert Parlor, Kiosk" data-calc="Dessert Parlor, Kiosk">Dessert Parlor, Kiosk</option>
+              <option value="Bhojanalya" data-calc="Bhojanalya">Bhojanalya</option>
+              <option value="Casual Dining, Quick Bites" data-calc="Casual Dining, Quick Bites">Casual Dining, Quick Bites</option>
+              <option value="Pop Up" data-calc="Pop Up">Pop Up</option>
+              <option value="Cafe, Bar" data-calc="Cafe, Bar">Cafe, Bar</option>
+              <option value="Casual Dining, Lounge" data-calc="Casual Dining, Lounge">Casual Dining, Lounge</option>
+              <option value="Bakery, Sweet Shop" data-calc="Bakery, Sweet Shop">Bakery, Sweet Shop</option>
+              <option value="Microbrewery, Bar" data-calc="Microbrewery, Bar">Microbrewery, Bar</option>
+              <option value="Cafe, Lounge" data-calc="Cafe, Lounge">Cafe, Lounge</option>
+              <option value="Bar, Pub" data-calc="Bar, Pub">Bar, Pub</option>
+              <option value="Lounge, Cafe" data-calc="Lounge, Cafe">Lounge, Cafe</option>
+              <option value="Club, Casual Dining" data-calc="Club, Casual Dining">Club, Casual Dining</option>
+              <option value="Quick Bites, Mess" data-calc="Quick Bites, Mess">Quick Bites, Mess</option>
+              <option value="Quick Bites, Meat Shop" data-calc="Quick Bites, Meat Shop">Quick Bites, Meat Shop</option>
+              <option value="Quick Bites, Kiosk" data-calc="Quick Bites, Kiosk">Quick Bites, Kiosk</option>
+              <option value="Lounge, Microbrewery" data-calc="Lounge, Microbrewery">Lounge, Microbrewery</option>
+              <option value="Food Court, Beverage Shop" data-calc="Food Court, Beverage Shop">Food Court, Beverage Shop</option>
+              <option value="Dessert Parlor, Food Court" data-calc="Dessert Parlor, Food Court">Dessert Parlor, Food Court</option>
+              <option value="Bar, Lounge" data-calc="Bar, Lounge">Bar, Lounge</option>
+
+
+            </select>
+        </div>
+
+
+        <p class="message">Location (in Bangalore)</p>
+        <div class="select">
+          <select id="format-1" name="loc_pincode" class="input">
+
+            <option selected disabled>Choose Location</option>
+            <option value="560068" data-calc="BTM">BTM</option>
+                    <option value="560070" data-calc="Banashankari">Banashankari</option>
+                    <option value="560043" data-calc="Banaswadi">Banaswadi</option>
+                    <option value="560069" data-calc="Bannerghatta Road">Bannerghatta Road</option>
+                    <option value="560004" data-calc="Basavanagudi">Basavanagudi</option>
+                    <option value="560079" data-calc="Basaveshwara Nagar">Basaveshwara Nagar</option>
+                    <option value="560103" data-calc="Bellandur">Bellandur</option>
+                    <option value="380068" data-calc="Bommanahalli">Bommanahalli</option>
+                    <option value="560025" data-calc="Brigade Road">Brigade Road</option>
+                    <option value="560037" data-calc="Brookefield">Brookefield</option>
+                    <option value="560093" data-calc="CV Raman Nagar">CV Raman Nagar</option>
+                    <option value="560055" data-calc="Central Bangalore">Central Bangalore</option>
+                    <option value="560025" data-calc="Church Street">Church Street</option>
+                    <option value="560053" data-calc="City Market">City Market</option>
+                    <option value="560042" data-calc="Commercial Street">Commercial Street</option>
+                    <option value="560052" data-calc="Cunningham Road">Cunningham Road</option>
+                    <option value="560071" data-calc="Domlur">Domlur</option>
+                    <option value="560100" data-calc="East Bangalore">East Bangalore</option>
+                    <option value="560047" data-calc="Ejipura">Ejipura</option>
+                    <option value="560100" data-calc="Electronic City">Electronic City</option>
+                    <option value="560084" data-calc="Frazer Town">Frazer Town</option>
+                    <option value="560045" data-calc="HBR Layout">HBR Layout</option>
+                    <option value="380068" data-calc="HSR">HSR</option>
+                    <option value="560024" data-calc="Hebbal">Hebbal</option>
+                    <option value="540045" data-calc="Hennur">Hennur</option>
+                    <option value="560034" data-calc="Hosur Road">Hosur Road</option>
+                    <option value="560067" data-calc="ITPL Main Road, Whitefield">ITPL Main Road, Whitefield</option>
+                    <option value="560038" data-calc="Indiranagar">Indiranagar</option>
+                    <option value="560051" data-calc="Infantry Road">Infantry Road</option>
+                    <option value="560078" data-calc="JP Nagar">JP Nagar</option>
+                    <option value="560063" data-calc="Jakkur">Jakkur</option>
+                    <option value="560013" data-calc="Jalahalli">Jalahalli</option>
+                    <option value="560011" data-calc="Jayanagar">Jayanagar</option>
+                    <option value="560075" data-calc="Jeevan Bhima Nagar">Jeevan Bhima Nagar</option>
+                    <option value="560036" data-calc="KR Puram">KR Puram</option>
+                    <option value="560093" data-calc="Kaggadasapura">Kaggadasapura</option>
+                    <option value="560043" data-calc="Kalyan Nagar">Kalyan Nagar</option>
+                    <option value="560033" data-calc="Kammanahalli">Kammanahalli</option>
+                    <option value="560004" data-calc="Kanakapura Road">Kanakapura Road</option>
+                    <option value="560060" data-calc="Kengeri">Kengeri</option>
+                    <option value="560034" data-calc="Koramangala">Koramangala</option>
+                    <option value="560034" data-calc="Koramangala 1st Block">Koramangala 1st Block</option>
+                    <option value="560034" data-calc="Koramangala 2nd Block">Koramangala 2nd Block</option>
+                    <option value="560034" data-calc="Koramangala 3rd Block">Koramangala 3rd Block</option>
+                    <option value="560034" data-calc="Koramangala 4th Block">Koramangala 4th Block</option>
+                    <option value="560095" data-calc="Koramangala 5th Block">Koramangala 5th Block</option>
+                    <option value="560095" data-calc="Koramangala 6th Block">Koramangala 6th Block</option>
+                    <option value="560095" data-calc="Koramangala 7th Block">Koramangala 7th Block</option>
+                    <option value="560095" data-calc="Koramangala 8th Block">Koramangala 8th Block</option>
+                    <option value="560061" data-calc="Kumaraswamy Layout">Kumaraswamy Layout</option>
+                    <option value="650027" data-calc="Langford Town">Langford Town</option>
+                    <option value="560001" data-calc="Lavelle Road">Lavelle Road</option>
+                    <option value="560001" data-calc="MG Road">MG Road</option>
+                    <option value="560053" data-calc="Magadi Road">Magadi Road</option>
+                    <option value="560009" data-calc="Majestic">Majestic</option>
+                    <option value="560003" data-calc="Malleshwaram">Malleshwaram</option>
+                    <option value="560037" data-calc="Marathahalli">Marathahalli</option>
+                    <option value="566026" data-calc="Mysore Road">Mysore Road</option>
+                    <option value="560072" data-calc="Nagarbhavi">Nagarbhavi</option>
+                    <option value="560005" data-calc="Nagawara">Nagawara</option>
+                    <option value="560094" data-calc="New BEL Road">New BEL Road</option>
+                    <option value="560012" data-calc="North Bangalore">North Bangalore</option>
+                    <option value="560017" data-calc="Old Airport Road">Old Airport Road</option>
+                    <option value="560038" data-calc="Old Madras Road">Old Madras Road</option>
+                    <option value="560058" data-calc="Peenya">Peenya</option>
+                    <option value="560032" data-calc="RT Nagar">RT Nagar</option>
+                    <option value="560009" data-calc="Race Course Road">Race Course Road</option>
+                    <option value="560010" data-calc="Rajajinagar">Rajajinagar</option>
+                    <option value="560098" data-calc="Rajarajeshwari Nagar">Rajarajeshwari Nagar</option>
+                    <option value="560016" data-calc="Rammurthy Nagar">Rammurthy Nagar</option>
+                    <option value="560005" data-calc="Residency Road">Residency Road</option>
+                    <option value="560025" data-calc="Richmond Road">Richmond Road</option>
+                    <option value="560025" data-calc="Sadashiv Nagar">Sadashiv Nagar</option>
+                    <option value="560092" data-calc="Sahakara Nagar">Sahakara Nagar</option>
+                    <option value="508208" data-calc="Sanjay Nagar">Sanjay Nagar</option>
+                    <option value="560052" data-calc="Sankey Road">Sankey Road</option>
+                    <option value="530103" data-calc="Sarjapur Road">Sarjapur Road</option>
+                    <option value="560020" data-calc="Seshadripuram">Seshadripuram</option>
+                    <option value="560027" data-calc="Shanti Nagar">Shanti Nagar</option>
+                    <option value="560106" data-calc="Shivajinagar">Shivajinagar</option>
+                    <option value="560007" data-calc="South Bangalore">South Bangalore</option>
+                    <option value="560001" data-calc="St. Marks Road">St. Marks Road</option>
+                    <option value="560075" data-calc="Thippasandra">Thippasandra</option>
+                    <option value="560042" data-calc="Ulsoor">Ulsoor</option>
+                    <option value="560061" data-calc="Uttarahalli">Uttarahalli</option>
+                    <option value="560087" data-calc="Varthur Main Road, Whitefield">Varthur Main Road, Whitefield</option>
+                    <option value="560052" data-calc="Vasanth Nagar">Vasanth Nagar</option>
+                    <option value="560040" data-calc="Vijay Nagar">Vijay Nagar</option>
+                    <option value="560012" data-calc="West Bangalore">West Bangalore</option>
+                    <option value="560066" data-calc="Whitefield">Whitefield</option>
+                    <option value="650027" data-calc="Wilson Garden">Wilson Garden</option>
+                    <option value="560064" data-calc="Yelahanka">Yelahanka</option>
+                    <option value="560022" data-calc="Yeshwantpur">Yeshwantpur</option>
+
+          </select>
+        </div>
+
+
+        <p class="message">Cuisines</p>
+        <div class="select-1">
+            <select id="multi_option" multiple name="cuisines" placeholder="Select Cuisines" data-silent-initial-value-set="false">
+                        
+                <option value="Afghan">Afghan</option>
+                <option value="Afghani">Afghani</option>
+                <option value="African">African</option>
+                <option value="American">American</option>
+                <option value="Andhra">Andhra</option>
+                <option value="Arabian">Arabian</option>
+                <option value="Asian">Asian</option>
+                <option value="Assamese">Assamese</option>
+                <option value="Australian">Australian</option>
+                <option value="Awadhi">Awadhi</option>
+                <option value="BBQ">BBQ</option>
+                <option value="Bakery">Bakery</option>
+                <option value="Bar Food">Bar Food</option>
+                <option value="Belgian">Belgian</option>
+                <option value="Bengali">Bengali</option>
+                <option value="Beverages">Beverages</option>
+                <option value="Bihari">Bihari</option>
+                <option value="Biryani">Biryani</option>
+                <option value="Bohri">Bohri</option>
+                <option value="British">British</option>
+                <option value="Bubble Tea">Bubble Tea</option>
+                <option value="Burger">Burger</option>
+                <option value="Burmese">Burmese</option>
+                <option value="Cafe">Cafe</option>
+                <option value="Cantonese">Cantonese</option>
+                <option value="Charcoal Chicken">Charcoal Chicken</option>
+                <option value="Chettinad">Chettinad</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Continental">Continental</option>
+                <option value="Desserts">Desserts</option>
+                <option value="Drinks Only">Drinks Only</option>
+                <option value="European">European</option>
+                <option value="Fast Food">Fast Food</option>
+                <option value="Finger Food">Finger Food</option>
+                <option value="French">French</option>
+                <option value="German">German</option>
+                <option value="Goan">Goan</option>
+                <option value="Greek">Greek</option>
+                <option value="Grill">Grill</option>
+                <option value="Gujarati">Gujarati</option>
+                <option value="Healthy Food">Healthy Food</option>
+                <option value="Hot dogs">Hot dogs</option>
+                <option value="Hyderabadi">Hyderabadi</option>
+                <option value="Ice Cream">Ice Cream</option>
+                <option value="Indian">Indian</option>
+                <option value="Indonesian">Indonesian</option>
+                <option value="Iranian">Iranian</option>
+                <option value="Italian">Italian</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Jewish">Jewish</option>
+                <option value="Juices">Juices</option>
+                <option value="Kashmiri">Kashmiri</option>
+                <option value="Kebab">Kebab</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Konkan">Konkan</option>
+                <option value="Korean">Korean</option>
+                <option value="Lebanese">Lebanese</option>
+                <option value="Lucknowi">Lucknowi</option>
+                <option value="Maharashtrian">Maharashtrian</option>
+                <option value="Malaysian">Malaysian</option>
+                <option value="Malwani">Malwani</option>
+                <option value="Mangalorean">Mangalorean</option>
+                <option value="Mediterranean">Mediterranean</option>
+                <option value="Mexican">Mexican</option>
+                <option value="Middle Eastern">Middle Eastern</option>
+                <option value="Mithai">Mithai</option>
+                <option value="Modern Indian">Modern Indian</option>
+                <option value="Momos">Momos</option>
+                <option value="Mongolian">Mongolian</option>
+                <option value="Mughlai">Mughlai</option>
+                <option value="Naga">Naga</option>
+                <option value="Nepalese">Nepalese</option>
+                <option value="North Eastern">North Eastern</option>
+                <option value="North Indian">North Indian</option>
+                <option value="Oriya">Oriya</option>
+                <option value="Paan">Paan</option>
+                <option value="Pan Asian">Pan Asian</option>
+                <option value="Parsi">Parsi</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Portuguese">Portuguese</option>
+                <option value="Rajasthani">Rajasthani</option>
+                <option value="Raw Meats">Raw Meats</option>
+                <option value="Roast Chicken">Roast Chicken</option>
+                <option value="Rolls">Rolls</option>
+                <option value="Russian">Russian</option>
+                <option value="Salad">Salad</option>
+                <option value="Sandwich">Sandwich</option>
+                <option value="Seafood">Seafood</option>
+                <option value="Sindhi">Sindhi</option>
+                <option value="Singaporean">Singaporean</option>
+                <option value="South American">South American</option>
+                <option value="South Indian">South Indian</option>
+                <option value="Spanish">Spanish</option>
+                <option value="Sri Lankan">Sri Lankan</option>
+                <option value="Steak">Steak</option>
+                <option value="Street Food">Street Food</option>
+                <option value="Sushi">Sushi</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Tea">Tea</option>
+                <option value="Tex-Mex">Tex-Mex</option>
+                <option value="Thai">Thai</option>
+                <option value="Tibetan">Tibetan</option>
+                <option value="Turkish">Turkish</option>
+                <option value="Vegan">Vegan</option>
+                <option value="Vietnamese">Vietnamese</option>
+                <option value="Wraps">Wraps</option>
+
+              </select>
+            </div>
+            
+
+
+            <button type="submit" class="button2">
+                Find The Rating
+            </button>
+            
+
+        </form>
+      </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+            <!-- <div class="flex">
+            <label>
+                <input required="" placeholder="" type="text" class="input">
+                <span>Firstname</span>
+            </label>
+    
+            <label>
+                <input required="" placeholder="" type="text" class="input">
+                <span>Lastname</span>
+            </label>
+        </div>  
+                
+        <label>
+            <input required="" placeholder="" type="email" class="input">
+            <span>Email</span>
+        </label> 
+            
+        <label>
+            <input required="" placeholder="" type="password" class="input">
+            <span>Password</span>
+        </label>
+        <label>
+            <input required="" placeholder="" type="password" class="input">
+            <span>Confirm password</span>
+        </label>
+        <button class="submit">Submit</button>
+        <p class="signin">Already have an acount ? <a href="#">Signin</a> </p> -->
+    
+
+
+
+
+        
+        <div class="rectangle">
+
+
+          <h1 class="response_block" id="_response">Your Expected Rating</h1>
+          <h2 class="response_block1">{{result}}</h2>
+
+
+
+          
+        </div>
+
+
+
+
+  
+
+
+
+
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/virtual-select.min.js') }}"></script>
+<script type="text/javascript">
+	VirtualSelect.init({ 
+	  ele: '#multi_option' 
+	});
+</script>
+<br>
+<footer>
+    <a href="#">SA's Restaurant Rating Prediction</a>
+  </footer>
+</div>
+</body>
+</html>
