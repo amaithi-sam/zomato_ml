@@ -21,12 +21,12 @@ def get_data_frame(config_path):
     '''
     config = read_params(config_path)
 
-    data_path = config['data_source']['local_data_source']['processed_data_source']
+    data_path = config['data_source']['local_data_source']['process_data_source']
     sample_ = config['data_source']['local_data_source']['data_sample']
 
     df = pd.read_csv(data_path, sep=',')
 
-    return df.sample(n=sample_)
+    return df          #df.sample(n=sample_)
 
 
 if __name__ == "__main__":

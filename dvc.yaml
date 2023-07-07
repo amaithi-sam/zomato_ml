@@ -2,11 +2,12 @@ stages:
 
   dvc_pipeline(End to End):
 
-  cmd:
-    - python3 src/feature_engineering.py --config=params.yaml
-    - python3
+    cmd:
+      - python3 src/feature_engineering.py --config=params.yaml
+      - python3 src/train_and_eval.py --config=params.yaml
+      - python3 src/ml_flow_log_production.py --config=params.yaml
 
-  deps:
-    - src/feature_engineering.py
-    - data/raw_data/zomato.csv
-    - data/processed_data/data_for_processing.csv
+    deps:
+      - src/feature_engineering.py
+      - data/raw_data/zomato.csv
+      - data/data_for_process/data_for_processing.csv
