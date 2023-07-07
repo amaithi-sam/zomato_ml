@@ -1,1 +1,24 @@
 zomato-exploratory-data-analysis.ipynb
+1-EDA And Feature Engineering.ipynb
+b.csv
+cuisines_BinaryEncoder_.joblib
+datagrame.csv
+demo.ipynb
+df1.csv
+rest_type_MultiLabelBinarizer.joblib
+zomato-exploratory-data-analysis.ipynb
+.vscode
+.ipynb_checkpoints
+src/__pycache__
+
+build
+prediction_service/__pycache__
+prediction_service/production_model.pkl
+Zomato_Restaurant_Rating_Prediction.egg-info
+notebooks/.ipynb_checkpoints
+notebooks/processed_X.csv
+notebooks/data_for_processing.csv
+src/__pycache__
+dist
+build
+.ipynb_checkpoints

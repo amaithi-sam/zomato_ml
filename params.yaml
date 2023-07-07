@@ -1,10 +1,34 @@
 base:
   name: Zomato Restaurant Rating Prediction
   random_seed: 42
+  test_size: 0.2
 
 data_source:
   local_data_source:
     unprocessed_data_source: data/raw_data/zomato.csv
-    processed_data_source: data/processed_data/data_for_processing.csv
+    process_data_source: data/data_for_process/data_for_processing.csv
+    processed_data_train_and_eval: data/data_for_train_and_eval/data_for_train_and_eval.csv
     data_sample: 10000
 
+
+metrics_path:
+  compare_plot_path: src/Regression_metrics_compare.png
+
+
+category_encoding:
+  pincode_location: data/category_encode/location_encoded_pincode.csv
+
+
+
+ml_flow_config:
+  remote_server_uri: http://localhost:5001
+
+  experiment_name: ML Experiment 
+  run_name: ML Run 
+
+  registered_model_name: rest_rating_pred_model.pkl
+
+  production_model_path: prediction_service/production_model.pkl
+
+  cuisine_encoder: prediction_service/cuisines_BinaryEncoder_.joblib
+  rest_type_encoder: prediction_service/rest_type_MultiLabelBinarizer.joblib
