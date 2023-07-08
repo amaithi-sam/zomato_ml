@@ -7,3 +7,5 @@ pandas
 PyYAML
 scikit_learn
 setuptools
+dvc
+
