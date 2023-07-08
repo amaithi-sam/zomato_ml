@@ -12,7 +12,7 @@ import category_encoders as ce
 
 from get_data_ import read_params, get_data_frame
 
-set_config(transform_output="pandas")
+# set_config(transform_output="pandas")
 
 def feature_engine(config_path):
     config = read_params(config_path)
